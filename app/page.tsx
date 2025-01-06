@@ -1,6 +1,5 @@
 'use client'
 
-//import WebApp from "@twa-dev/sdk";
 import { useEffect, useState } from "react";
 
 interface UserData {
@@ -20,7 +19,7 @@ export default function Home() {
     if (typeof window !== "undefined") {
       // Динамический импорт — чтобы не ломать билд
       import("@twa-dev/sdk").then(({ default: WebApp }) => {
-        if(WebApp.initDataUnsafe.user) {
+        if(WebApp.initDataUnsafe?.user) {
           setUserData(WebApp.initDataUnsafe.user as UserData)
         }
       });
