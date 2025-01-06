@@ -23,13 +23,6 @@ export default function RootLayout({
           src="https://telegram.org/js/telegram-web-app.js"
           strategy="beforeInteractive"
         />
-        {/* Подключаем eruda, чтобы иметь консоль на мобильном */}
-        <Script src="https://cdn.jsdelivr.net/npm/eruda" strategy="afterInteractive" />
-        <Script
-          id="eruda-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: 'eruda.init();' }}
-        />
       </head>
       <body className={inter.className}>
         {children}
