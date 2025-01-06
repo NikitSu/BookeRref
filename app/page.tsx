@@ -12,9 +12,9 @@ interface UserData {
 }
 
 export default function Home() {
-  const [initData, setInitData] = useState('');
+  //const [initData, setInitData] = useState('');
   const [userId, setUserId] = useState('');
-  const [startParam, setStartParam] = useState('');
+  //const [startParam, setStartParam] = useState('');
   const [userData, setUserData] = useState<UserData | null>(null);
 
   // Для реферальной логики
@@ -31,14 +31,14 @@ export default function Home() {
         WebApp.ready();
 
         // Сохраняем initData (если нужно)
-        setInitData(WebApp.initData);
+        //setInitData(WebApp.initData);
 
         // Берём userId и startParam (если кто-то зашёл по чужой рефссылке)
         const currentUserId = WebApp.initDataUnsafe.user?.id?.toString() || '';
         const param = WebApp.initDataUnsafe.start_param || '';
 
         setUserId(currentUserId);
-        setStartParam(param);
+        //setStartParam(param);
 
         // Заполняем userData (для отображения в интерфейсе)
         if (WebApp.initDataUnsafe.user) {
