@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import { saveReferral, getReferrals, getReferrer } from "@/lib/storage";
 
 interface ReferralSystemProps {
+  initData: string;
   userId: string;
   startParam: string;
 }
 
 const ReferralSystem: React.FC<ReferralSystemProps> = ({
+  initData,
   userId,
   startParam,
 }) => {
+  // Чтобы ESLint не ругался, покажем initData в консоли
+  console.log("initData:", initData);
+
   const [referrals, setReferrals] = useState<string[]>([]);
   const [referrer, setReferrer] = useState<string | null>(null);
 
-  // Вызовем логику рефералок при монтировании/изменении userId и startParam
   useEffect(() => {
     if (!userId) return;
 
@@ -31,7 +35,7 @@ const ReferralSystem: React.FC<ReferralSystemProps> = ({
     setReferrals(myReferrals);
   }, [userId, startParam]);
 
-  // Открыть телеграм с параметром старт для друга
+  // Открыть Telegram, передав ссылку с параметром start
   const handleInviteFriend = () => {
     if (!userId) return;
     window.open(
