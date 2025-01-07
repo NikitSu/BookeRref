@@ -58,7 +58,6 @@ export default function Home() {
 
           {/* Подключаем компонент, который отобразит рефссылки, список рефералов и т. д. */}
           <ReferralSystem
-            initData={initData}
             userId={userId}
             startParam={startParam}
           />

@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import { saveReferral, getReferrals, getReferrer } from "@/lib/storage";
 
 interface ReferralSystemProps {
-  initData: string;
   userId: string;
   startParam: string;
 }
 
 const ReferralSystem: React.FC<ReferralSystemProps> = ({
-  initData,
   userId,
   startParam,
 }) => {
@@ -36,8 +34,10 @@ const ReferralSystem: React.FC<ReferralSystemProps> = ({
   // Открыть телеграм с параметром старт для друга
   const handleInviteFriend = () => {
     if (!userId) return;
-    // Откроет Telegram, передавая старт-параметр = текущий userId
-    window.open(`https://t.me/share/url?url=https://t.me/bbookkeee_bot?start=${userId}&text=РеферальнаяСистема`, "_blank");
+    window.open(
+      `https://t.me/share/url?url=https://t.me/bbookkeee_bot?start=${userId}&text=РеферальнаяСистема`,
+      "_blank"
+    );
   };
 
   // Скопировать реферальную ссылку
